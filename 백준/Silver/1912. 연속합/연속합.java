@@ -1,26 +1,32 @@
+
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String x = sc.nextLine();
-        int n = Integer.parseInt(x);
 
-        String[] y = sc.nextLine().split(" ");
+        String N = sc.nextLine();
+        int n = Integer.parseInt(N);
+
+        String[] s = sc.nextLine().split(" ");
         int[] su = new int[n];
 
-        for (int i = 0; i < n ; i++) {
-            su[i] = Integer.parseInt(y[i]);
+        for (int i = 0; i < n; i++) {
+            su[i] = Integer.parseInt(s[i]);
         }
+
         int max = su[0];
-        int yeMax1 = su[0];
-        int yeMax2 = su[0];
-        for (int i = 1; i <n ; i++) {
-            yeMax2 = Math.max(yeMax1+su[i],su[i]);
-            max = Math.max(max,yeMax2);
-            yeMax1 = yeMax2;
+        int yemax = su[0];
+        int yemax2 = 0;
+
+        for (int i = 1; i < n; i++) {
+            yemax2 = Math.max(su[i], yemax + su[i]);
+            max = Math.max(max, yemax2);
+            yemax = yemax2;
         }
 
         System.out.println(max);
 
+        sc.close();
     }
 }
