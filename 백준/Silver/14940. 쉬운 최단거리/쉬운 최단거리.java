@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.util.*;
 
@@ -9,11 +8,7 @@ class Main {
     static int[] moveX = {0, 0, 1, -1};
     static int[] moveY = {1, -1, 0, 0};
     static int startX = 0,startY = 0;
-
-    static int count = 0,ans = Integer.MAX_VALUE;
-
     static int N, M;
-    static StringBuilder sb = new StringBuilder();
 
     public static void  main(String[] args) throws IOException {
 
@@ -42,13 +37,16 @@ class Main {
         check[startX][startY] = true;
         bfs(startX, startY);
 
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
-                System.out.print(arr[i][j]+ " ");
+                bw.write(arr[i][j]+ " ");
             }
-            System.out.println();
+            bw.newLine();
         }
-
+        bw.close();
     }
     public static void bfs(int x, int y){
         Queue<spot> q = new LinkedList<>();
