@@ -1,29 +1,25 @@
-import java.util.Scanner;
-
+import java.io.*;
+import java.util.*;
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main (String[] args) throws IOException {
 
-        String N = sc.nextLine();
-        int n = Integer.parseInt(N);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        String[] s = sc.nextLine().split(" ");
-        int[] su = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            su[i] = Integer.parseInt(s[i]);
+        int N = Integer.parseInt((br.readLine()));
+        int[] arr = new int[N + 1];
+        String a = br.readLine().trim();
+        StringTokenizer st = new StringTokenizer(a);
+        for (int i = 1; i <= N; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-
-        int max = su[0];
-        int recode = su[0];
-
-        for (int i = 1; i < n; i++) {
-            recode = Math.max(su[i], recode + su[i]);
-            max = Math.max(max, recode);
+        int max = arr[1];
+        int recodeMax = arr[1];
+        for (int i = 2; i <= N; i++) {
+            recodeMax = Math.max(arr[i], recodeMax + arr[i]);
+            max = Math.max(max, recodeMax);
         }
-
-        System.out.println(max);
-
-        sc.close();
+        bw.write(max+"");
+        bw.close();
     }
 }
