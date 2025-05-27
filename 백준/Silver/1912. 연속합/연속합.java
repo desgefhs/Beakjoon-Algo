@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Main {
@@ -16,13 +15,11 @@ public class Main {
         }
 
         int max = su[0];
-        int yemax = su[0];
-        int yemax2 = 0;
+        int recode = su[0];
 
         for (int i = 1; i < n; i++) {
-            yemax2 = Math.max(su[i], yemax + su[i]);
-            max = Math.max(max, yemax2);
-            yemax = yemax2;
+            recode = Math.max(su[i], recode + su[i]);
+            max = Math.max(max, recode);
         }
 
         System.out.println(max);
