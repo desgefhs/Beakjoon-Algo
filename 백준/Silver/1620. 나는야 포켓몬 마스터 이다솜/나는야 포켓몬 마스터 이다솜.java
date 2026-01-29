@@ -1,7 +1,5 @@
-
 import java.io.*;
 import java.util.HashMap;
-
 
 public class Main {
     public static void main(String[] args)throws IOException {
@@ -22,15 +20,18 @@ public class Main {
 
         }
 
+        StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < M; i++) {
             String target = br.readLine();
             try {
                 Integer K = Integer.parseInt(target);
-                System.out.println(map1.get(K));
+                sb.append(map1.get(K)).append("\n");
             } catch (NumberFormatException e) {
-                System.out.println(map2.get(target));
+                sb.append(map2.get(target)).append("\n");
             }
         }
+        System.out.println(sb);
         br.close();
     }
 
